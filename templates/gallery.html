@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Image Gallery - Raspberry Pi Image Display{% endblock %}
+
+{% block content %}
+<section class="gallery-section">
+    <h2>Image Gallery</h2>
+    
+    {% if displayed %}
+    <div class="currently-displayed">
+        <h3>Currently Displayed</h3>
+        <div class="image-card highlighted">
+            <img src="{{ url_for('static', filename='uploads/' + displayed) }}" alt="{{ displayed }}">
+            <div class="image-info">
+                <p class="image-name">{{ displayed }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="gallery-grid">
+        {% if images %}
+            {% for image in images %}
+            <div class="image-card {% if displayed == image.filename %}active{% endif %}">
+                <a href="{{ url_for('display', filename=image.filename) }}">
+                    <img src="{{ url_for('static', filename='uploads/' + image.filename) }}" alt="{{ image.filename }}">
+                </a>
+                <div class="image-info">
+                    <p class="image-name">{{ image.filename }}</p>
+                    <a href="{{ url_for('display', filename=image.filename) }}" class="btn small-btn">Display</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-images">No images have been uploaded yet.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

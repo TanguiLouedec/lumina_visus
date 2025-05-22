@@ -1,0 +1,65 @@
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Uploaded Images - ignore contents but keep folder
+uploads/*
+!uploads/.gitkeep
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Flask instance folder
+instance/
+
+# Local configuration
+.env
+.flaskenv
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Temporary files
+*.tmp
+*~
+tmp/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Raspberry Pi specific
+.Trash-*
