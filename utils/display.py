@@ -24,7 +24,7 @@ def display_image(filepath, method='tiv'):
         elif method == 'fbi':
             # Framebuffer Imageviewer
             result = subprocess.run(['sudo', 'fbi', '-d', '/dev/fb0', 
-                                    '-T', '1', '-a', filepath],
+                                    '-T', '1', '--nonverbose', '--notitle', '-a', filepath],
                                    capture_output=True,
                                    text=True)
             return True, "Image displayed using FBI"
